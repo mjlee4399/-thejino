@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="JINO(지노) 공식 D2C 온라인 스토어 - 피부 본연의 결을 어루만지는 고감도 미니멀리즘 비건 뷰티 브랜드. 세련된 식물성 스킨케어 컬렉션을 제안합니다.">
+  <meta name="keywords" content="지노, JINO, 비건화장품, 스킨케어, 비건뷰티, D2C몰, 화장품 쇼핑몰, 클린뷰티">
+  <meta name="author" content="JINO Cosmetics">
+  
+  <title>JINO | 지노 공식 온라인 스토어</title>
+
+  <!-- FontAwesome Icons for E-commerce UX Elements -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  
+  <!-- JINO Custom Stylesheet -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- STICKY HEADER NAVIGATION -->
+  <header>
+    <div class="nav-container">
+      <!-- Brand Logo -->
+      <a href="#" class="logo" id="headerLogo">JINO</a>
+
+      <!-- Main Navigation Menu -->
+      <nav class="nav-menu">
+        <a href="#" class="nav-link active" data-view="home" id="navHome">Home</a>
+        <a href="#" class="nav-link" data-view="brand" id="navBrand">BRAND</a>
+        <a href="#" class="nav-link" data-view="shop" id="navShop">SHOP</a>
+        <a href="#" class="nav-link" data-view="journal" id="navJournal">JOURNAL</a>
+        <a href="#" class="nav-link" data-view="review" id="navReview">REVIEW</a>
+        <a href="#" class="nav-link" data-view="contact" id="navContact">CONTACT</a>
+      </nav>
+
+      <!-- Utility Links (Login & Cart) -->
+      <div class="nav-utils">
+        <a href="#" class="util-icon" id="userBtn" aria-label="My Account/Login">
+          <i class="far fa-user"></i>
+        </a>
+        <a href="#" class="util-icon" id="cartBtn" aria-label="Open Shopping Cart">
+          <i class="far fa-shopping-bag"></i>
+          <span class="cart-count" id="cartBadgeCount">0</span>
+        </a>
+        <a href="#" class="mobile-toggle" id="mobileNavToggle" aria-label="Toggle Mobile Menu" onclick="alert('모바일 메뉴는 데모 버전에서 미지원합니다. 해상도 축소 시 데스크톱 네비게이션이 자동 대응됩니다.')">
+          <i class="fas fa-bars"></i>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- DYNAMIC VIEWPORT CONTAINER (Pages load here via client-side routing) -->
+  <main id="mainViewport">
+    <!-- View contents injected by app.js -->
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <!-- Brand Info -->
+        <div class="footer-brand">
+          <div class="footer-logo">JINO</div>
+          <p>피부 세포가 지닌 원천적인 생명력에 집중하고 식물 고유의 순수함을 탐구하는 미니멀 비건 코스메틱 브랜드, 지노입니다.</p>
+        </div>
+
+        <!-- Links Column 1 -->
+        <div>
+          <h4 class="footer-title">Navigation</h4>
+          <ul class="footer-links">
+            <li><a href="#" data-view="brand">브랜드 스토리 (BRAND)</a></li>
+            <li><a href="#" data-view="shop">전체 제품 쇼핑 (SHOP)</a></li>
+            <li><a href="#" data-view="journal">저널 매거진 (JOURNAL)</a></li>
+            <li><a href="#" data-view="review">고객 구매 리뷰 (REVIEW)</a></li>
+          </ul>
+        </div>
+
+        <!-- Links Column 2 -->
+        <div>
+          <h4 class="footer-title">Help</h4>
+          <ul class="footer-links">
+            <li><a href="#" data-view="contact">고객센터 문의 (CONTACT)</a></li>
+            <li><a href="#" onclick="alert('이용약관은 준비 중입니다.')">이용약관</a></li>
+            <li><a href="#" onclick="alert('개인정보처리방침은 준비 중입니다.')" style="font-weight: 500; color: var(--text-primary);">개인정보처리방침</a></li>
+            <li><a href="#" onclick="alert('배송/환불 규정은 준비 중입니다.')">배송 및 교환/환불 정책</a></li>
+          </ul>
+        </div>
+
+        <!-- Customer Support -->
+        <div class="footer-cs">
+          <h4 class="footer-title">Customer Center</h4>
+          <p>상담이 필요하시면 언제든 연락주세요.</p>
+          <div class="tel">1644-0000</div>
+          <p>평일 10:00 - 17:00 (주말 및 공휴일 휴무)<br>점심시간 12:00 - 13:00</p>
+          <p style="margin-top: 15px;">이메일: cs@jinobeauty.com</p>
+        </div>
+      </div>
+
+      <!-- Footer Bottom -->
+      <div class="footer-bottom">
+        <div>
+          &copy; 2026 JINO Beauty Inc. All Rights Reserved. Co-Registration No. 120-00-00000.
+        </div>
+        <div class="social-links">
+          <a href="#" aria-label="JINO Instagram" onclick="alert('인스타그램 링크 준비 중')"><i class="fab fa-instagram"></i></a>
+          <a href="#" aria-label="JINO Pinterest" onclick="alert('핀터레스트 링크 준비 중')"><i class="fab fa-pinterest"></i></a>
+          <a href="#" aria-label="JINO Kakao Plus" onclick="alert('카카오톡 채널 준비 중')"><i class="fas fa-comment"></i></a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- SHOPPING CART SLIDE-OVER DRAWER -->
+  <div class="cart-overlay" id="cartOverlayBackdrop"></div>
+  <div class="cart-drawer" id="cartDrawerPanel">
+    <div class="cart-header">
+      <h3 class="cart-title">Your Cart (<span class="cart-count">0</span>)</h3>
+      <button class="cart-close-btn" id="closeCartBtn" aria-label="Close Cart">
+        <i class="fas fa-times"></i>
+      </button>
+    </div>
+    
+    <!-- Cart Items list container -->
+    <div class="cart-items-container" id="cartItemsList">
+      <!-- Dynamic list or Empty message -->
+    </div>
+
+    <!-- Cart Footer with Pricing Summary -->
+    <div class="cart-footer" id="cartPricingFooter">
+      <!-- Summary elements populated dynamically -->
+    </div>
+  </div>
+
+  <!-- AUTHENTICATION DIALOG (LOGIN / SIGN UP MODAL) -->
+  <div class="modal-overlay" id="authModalBackdrop">
+    <div class="modal-box" id="authModalContent">
+      <!-- Dynamic login/signup forms rendered by JS -->
+    </div>
+  </div>
+
+  <!-- JINO Logic Engine Connection -->
+  <script src="app.js"></script>
+</body>
+</html>
