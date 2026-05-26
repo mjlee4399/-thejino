@@ -231,10 +231,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
-  document.querySelector('.modal-close-btn').addEventListener('click', () => {
-    closeAuthModal();
-  });
-
   document.querySelector('.modal-overlay').addEventListener('click', (e) => {
     if (e.target === document.querySelector('.modal-overlay')) {
       closeAuthModal();
