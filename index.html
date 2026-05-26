@@ -9,8 +9,8 @@
   
   <title>JINO | 지노 공식 온라인 스토어</title>
 
-  <!-- FontAwesome Icons for E-commerce UX Elements -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <!-- Lucide Icons for Premium Minimalist UX -->
+  <script src="https://unpkg.com/lucide@latest"></script>
   
   <!-- JINO Custom Stylesheet -->
   <link rel="stylesheet" href="style.css">
@@ -36,14 +36,14 @@
       <!-- Utility Links (Login & Cart) -->
       <div class="nav-utils">
         <a href="#" class="util-icon" id="userBtn" aria-label="My Account/Login">
-          <i class="far fa-user"></i>
+          <i data-lucide="user"></i>
         </a>
         <a href="#" class="util-icon" id="cartBtn" aria-label="Open Shopping Cart">
-          <i class="far fa-shopping-bag"></i>
+          <i data-lucide="shopping-bag"></i>
           <span class="cart-count" id="cartBadgeCount">0</span>
         </a>
         <a href="#" class="mobile-toggle" id="mobileNavToggle" aria-label="Toggle Mobile Menu" onclick="alert('모바일 메뉴는 데모 버전에서 미지원합니다. 해상도 축소 시 데스크톱 네비게이션이 자동 대응됩니다.')">
-          <i class="fas fa-bars"></i>
+          <i data-lucide="menu"></i>
         </a>
       </div>
     </div>
@@ -102,9 +102,9 @@
           &copy; 2026 JINO Beauty Inc. All Rights Reserved. Co-Registration No. 120-00-00000.
         </div>
         <div class="social-links">
-          <a href="#" aria-label="JINO Instagram" onclick="alert('인스타그램 링크 준비 중')"><i class="fab fa-instagram"></i></a>
-          <a href="#" aria-label="JINO Pinterest" onclick="alert('핀터레스트 링크 준비 중')"><i class="fab fa-pinterest"></i></a>
-          <a href="#" aria-label="JINO Kakao Plus" onclick="alert('카카오톡 채널 준비 중')"><i class="fas fa-comment"></i></a>
+          <a href="#" aria-label="JINO Instagram" onclick="alert('인스타그램 링크 준비 중')"><i data-lucide="instagram"></i></a>
+          <a href="#" aria-label="JINO Pinterest" onclick="alert('핀터레스트 링크 준비 중')"><i data-lucide="pinterest"></i></a>
+          <a href="#" aria-label="JINO Kakao Plus" onclick="alert('카카오톡 채널 준비 중')"><i data-lucide="message-circle"></i></a>
         </div>
       </div>
     </div>
@@ -116,7 +116,7 @@
     <div class="cart-header">
       <h3 class="cart-title">Your Cart (<span class="cart-count">0</span>)</h3>
       <button class="cart-close-btn" id="closeCartBtn" aria-label="Close Cart">
-        <i class="fas fa-times"></i>
+        <i data-lucide="x"></i>
       </button>
     </div>
     

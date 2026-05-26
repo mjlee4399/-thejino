@@ -171,6 +171,11 @@ function navigate(view, params = {}) {
     routes[view](mainEl, params);
   }
 
+  // Initialize Lucide icons
+  if (typeof lucide !== 'undefined') {
+    lucide.createIcons();
+  }
+
   // Scroll smoothly to top
   window.scrollTo({ top: 0, behavior: 'smooth' });
 }
@@ -312,17 +317,17 @@ function renderHome(container) {
           </div>
           <div class="values-grid">
             <div class="value-item">
-              <div class="value-icon"><i class="fas fa-leaf"></i></div>
+              <div class="value-icon"><i data-lucide="leaf"></i></div>
               <h3 class="value-title">100% Certified Vegan</h3>
               <p class="value-desc">동물 유래 성분을 완전히 배제하고 오직 식물 본연의 순수한 효능에 집중하는 비건 인증 브랜드입니다.</p>
             </div>
             <div class="value-item">
-              <div class="value-icon"><i class="fas fa-wind"></i></div>
+              <div class="value-icon"><i data-lucide="wind"></i></div>
               <h3 class="value-title">Clean Skin Science</h3>
               <p class="value-desc">인공 색소와 알레르기 유발 합성 향료를 일절 사용하지 않아 초민감 피부도 자극 없이 매일 맑게 가꿀 수 있습니다.</p>
             </div>
             <div class="value-item">
-              <div class="value-icon"><i class="fas fa-recycle"></i></div>
+              <div class="value-icon"><i data-lucide="recycle"></i></div>
               <h3 class="value-title">Eco-Friendly Package</h3>
               <p class="value-desc">재활용 가능한 투명 글라스와 콩기름 인쇄 패키지를 통해 지구 환경의 건강함까지 함께 고민합니다.</p>
             </div>
@@ -560,9 +565,9 @@ function renderProductDetail(container, params) {
           <div class="purchase-section">
             <div class="qty-cta-row">
               <div class="qty-selector">
-                <button class="qty-btn" id="qtyMinusBtn"><i class="fas fa-minus"></i></button>
+                <button class="qty-btn" id="qtyMinusBtn"><i data-lucide="minus"></i></button>
                 <div class="qty-val" id="qtyValEl">1</div>
-                <button class="qty-btn" id="qtyPlusBtn"><i class="fas fa-plus"></i></button>
+                <button class="qty-btn" id="qtyPlusBtn"><i data-lucide="plus"></i></button>
               </div>
               <button class="btn-add-cart" id="addCartBtn">장바구니 담기</button>
             </div>
@@ -611,11 +616,11 @@ function renderProductDetail(container, params) {
         <div class="tab-content-panel" id="tab-qna">
           <div class="qna-list">
             <div class="qna-item">
-              <div class="qna-question">Q. 비건 성분인데 임산부가 사용해도 되나요? <i class="fas fa-chevron-down"></i></div>
+              <div class="qna-question">Q. 비건 성분인데 임산부가 사용해도 되나요? <i data-lucide="chevron-down"></i></div>
               <div class="qna-answer">A. 안녕하세요 JINO CS팀입니다. 저희 제품은 인공 화학 성분을 배제한 100% 식물성 성분으로 민감피부도 편안하게 사용 가능하지만, 개인에 따른 체질 차이가 있을 수 있으므로 전문의나 담당 의사분과 상의하신 뒤 전성분을 체크하고 쓰실 것을 권장드립니다.</div>
             </div>
             <div class="qna-item">
-              <div class="qna-question">Q. 주문 완료 후 배송이 얼마나 소요될까요? <i class="fas fa-chevron-down"></i></div>
+              <div class="qna-question">Q. 주문 완료 후 배송이 얼마나 소요될까요? <i data-lucide="chevron-down"></i></div>
               <div class="qna-answer">A. 일반적으로 결제 완료 후 영업일 기준 1~3일 이내에 배송이 출고됩니다. 주말이나 공휴일이 겹칠 경우 지연될 수 있습니다.</div>
             </div>
           </div>
@@ -810,11 +815,11 @@ function renderReview(container) {
           <div class="form-group">
             <label class="form-label">평점 선택</label>
             <div class="star-rating-select" id="starSelector">
-              <i class="fas fa-star active" data-val="1"></i>
-              <i class="fas fa-star active" data-val="2"></i>
-              <i class="fas fa-star active" data-val="3"></i>
-              <i class="fas fa-star active" data-val="4"></i>
-              <i class="fas fa-star active" data-val="5"></i>
+              <i data-lucide="star" class="active" data-val="1"></i>
+              <i data-lucide="star" class="active" data-val="2"></i>
+              <i data-lucide="star" class="active" data-val="3"></i>
+              <i data-lucide="star" class="active" data-val="4"></i>
+              <i data-lucide="star" class="active" data-val="5"></i>
             </div>
           </div>
 
@@ -888,9 +893,10 @@ function renderReview(container) {
 
   // Star selector clicks
   document.getElementById('starSelector').addEventListener('click', (e) => {
-    if (e.target.tagName === 'I') {
-      selectedStars = parseInt(e.target.getAttribute('data-val'));
-      document.querySelectorAll('#starSelector i').forEach(star => {
+    const starEl = e.target.closest('[data-val]');
+    if (starEl) {
+      selectedStars = parseInt(starEl.getAttribute('data-val'));
+      document.querySelectorAll('#starSelector [data-val]').forEach(star => {
         const starVal = parseInt(star.getAttribute('data-val'));
         if (starVal <= selectedStars) {
           star.classList.add('active');
@@ -939,7 +945,7 @@ function renderReview(container) {
     document.getElementById('newReviewForm').reset();
     document.getElementById('reviewFormSection').classList.remove('open');
     selectedStars = 5;
-    document.querySelectorAll('#starSelector i').forEach(s => s.classList.add('active'));
+    document.querySelectorAll('#starSelector [data-val]').forEach(s => s.classList.add('active'));
     alert('소중한 후기가 성공적으로 등록되었습니다.');
   });
 
@@ -1205,15 +1211,15 @@ function renderCheckout(container) {
           <div class="checkout-section-title">3. 결제수단 선택</div>
           <div class="checkout-payment-methods">
             <div class="payment-method-card active" data-method="card">
-              <i class="far fa-credit-card payment-method-icon"></i>
+              <i data-lucide="credit-card" class="payment-method-icon"></i>
               <span class="payment-method-title">신용카드 결제</span>
             </div>
             <div class="payment-method-card kakaopay" data-method="kakaopay">
-              <i class="fas fa-comment payment-method-icon"></i>
+              <i data-lucide="message-circle" class="payment-method-icon"></i>
               <span class="payment-method-title">카카오페이</span>
             </div>
             <div class="payment-method-card naverpay" data-method="naverpay">
-              <i class="fas fa-font payment-method-icon"></i>
+              <i data-lucide="wallet" class="payment-method-icon"></i>
               <span class="payment-method-title">네이버페이</span>
             </div>
           </div>
@@ -1285,17 +1291,19 @@ function renderCheckout(container) {
       return;
     }
 
-    // Create checkout loader backdrop
     const loader = document.createElement('div');
     loader.className = 'modal-overlay open';
     loader.innerHTML = `
       <div class="modal-box text-center" style="width: 320px; padding: 50px 30px;">
-        <i class="fas fa-spinner fa-spin" style="font-size:32px; color: var(--accent-gold); margin-bottom: 20px;"></i>
+        <i data-lucide="loader-2" class="spin-icon" style="color: var(--accent-gold); margin-bottom: 20px;"></i>
         <h4 class="heading-serif" style="font-size:18px;">안전하게 결제 처리 중...</h4>
         <p style="font-size:12px; color:var(--text-secondary); margin-top:10px;">창을 닫지 마시고 잠시만 대기해 주세요.</p>
       </div>
     `;
     document.body.appendChild(loader);
+    if (typeof lucide !== 'undefined') {
+      lucide.createIcons();
+    }
 
     setTimeout(() => {
       // Clean loader
@@ -1326,7 +1334,7 @@ function renderCheckout(container) {
       mainEl.innerHTML = `
         <div class="view-section container section-padding">
           <div class="success-card">
-            <div class="success-icon"><i class="fas fa-check"></i></div>
+            <div class="success-icon"><i data-lucide="check"></i></div>
             <h1 class="success-title">주문 완료</h1>
             <p class="success-desc">고객님의 주문이 정상적으로 성공 처리되었습니다. JINO 뷰티와 함께 빛나는 하루를 보내세요.</p>
             
@@ -1443,12 +1451,15 @@ function renderCart() {
   if (state.cart.length === 0) {
     itemsContainer.innerHTML = `
       <div class="cart-empty-message">
-        <div class="cart-empty-icon"><i class="fas fa-shopping-bag"></i></div>
+        <div class="cart-empty-icon"><i data-lucide="shopping-bag"></i></div>
         <p style="font-family: var(--font-serif); font-size: 18px; font-weight:300;">장바구니가 비어 있습니다.</p>
         <p style="font-size:12px; color:var(--text-secondary); margin-top:5px;">JINO만의 감각적인 컬렉션을 가득 채워보세요.</p>
       </div>
     `;
     footerEl.classList.add('hidden');
+    if (typeof lucide !== 'undefined') {
+      lucide.createIcons();
+    }
     return;
   }
 
@@ -1472,14 +1483,14 @@ function renderCart() {
         
         <div class="cart-item-bottom">
           <div class="cart-item-qty">
-            <button class="cart-qty-btn minus-btn" data-idx="${idx}"><i class="fas fa-minus"></i></button>
+            <button class="cart-qty-btn minus-btn" data-idx="${idx}"><i data-lucide="minus"></i></button>
             <div class="cart-qty-val">${item.qty}</div>
-            <button class="cart-qty-btn plus-btn" data-idx="${idx}"><i class="fas fa-plus"></i></button>
+            <button class="cart-qty-btn plus-btn" data-idx="${idx}"><i data-lucide="plus"></i></button>
           </div>
           <span class="cart-item-price">${totalLinePrice.toLocaleString()}원</span>
         </div>
       </div>
-      <button class="cart-item-remove remove-btn" data-idx="${idx}"><i class="fas fa-times"></i></button>
+      <button class="cart-item-remove remove-btn" data-idx="${idx}"><i data-lucide="x"></i></button>
     `;
     itemsContainer.appendChild(itemEl);
   });
@@ -1575,6 +1586,10 @@ function renderCart() {
     closeCartDrawer();
     navigate('checkout');
   });
+
+  if (typeof lucide !== 'undefined') {
+    lucide.createIcons();
+  }
 }
 
 // --- AUTHENTICATION MODALS (LOGIN/REGISTER) ---
@@ -1591,7 +1606,7 @@ function renderAuthModal(mode) {
   const modalBox = document.querySelector('.modal-box');
   if (mode === 'login') {
     modalBox.innerHTML = `
-      <button class="modal-close-btn"><i class="fas fa-times"></i></button>
+      <button class="modal-close-btn"><i data-lucide="x"></i></button>
       <h3 class="modal-title">JINO LOGIN</h3>
       <form id="loginForm">
         <div class="form-group">
@@ -1630,7 +1645,7 @@ function renderAuthModal(mode) {
 
   } else {
     modalBox.innerHTML = `
-      <button class="modal-close-btn"><i class="fas fa-times"></i></button>
+      <button class="modal-close-btn"><i data-lucide="x"></i></button>
       <h3 class="modal-title">JINO JOIN</h3>
       <form id="signupForm">
         <div class="form-group">
@@ -1677,4 +1692,8 @@ function renderAuthModal(mode) {
   modalBox.querySelector('.modal-close-btn').addEventListener('click', () => {
     closeAuthModal();
   });
+
+  if (typeof lucide !== 'undefined') {
+    lucide.createIcons();
+  }
 }

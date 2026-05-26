@@ -2261,3 +2261,109 @@ main {
 .hidden {
   display: none !important;
 }
+
+/* --- LUCIDE SVG ICONS GLOBAL STYLES --- */
+svg.lucide {
+  width: 20px;
+  height: 20px;
+  stroke: currentColor;
+  fill: none;
+  stroke-width: 1.5;
+  vertical-align: middle;
+  display: inline-block;
+}
+
+/* Specific Lucide Icon Overrides */
+.util-icon svg.lucide {
+  width: 20px;
+  height: 20px;
+}
+
+.mobile-toggle svg.lucide {
+  width: 24px;
+  height: 24px;
+}
+
+.value-icon svg.lucide {
+  width: 38px;
+  height: 38px;
+  stroke: var(--accent-gold);
+  stroke-width: 1.25;
+}
+
+.social-links svg.lucide {
+  width: 18px;
+  height: 18px;
+  transition: var(--transition-fast);
+}
+
+.social-links a:hover svg.lucide {
+  color: var(--accent-gold);
+  transform: translateY(-2px);
+}
+
+.cart-empty-icon svg.lucide {
+  width: 48px;
+  height: 48px;
+  stroke: var(--text-light);
+  stroke-width: 1.2;
+}
+
+.cart-item-remove svg.lucide {
+  width: 16px;
+  height: 16px;
+}
+
+.cart-qty-btn svg.lucide {
+  width: 12px;
+  height: 12px;
+}
+
+.qty-btn svg.lucide {
+  width: 14px;
+  height: 14px;
+}
+
+.qna-question svg.lucide {
+  width: 16px;
+  height: 16px;
+  transition: var(--transition-fast);
+}
+
+.qna-question:hover svg.lucide {
+  transform: translateY(2px);
+}
+
+.success-icon svg.lucide {
+  width: 32px;
+  height: 32px;
+  stroke: var(--accent-gold);
+  stroke-width: 2;
+}
+
+.star-rating-select svg.lucide {
+  width: 24px;
+  height: 24px;
+  stroke: var(--text-light);
+  fill: none;
+  cursor: pointer;
+  transition: var(--transition-fast);
+}
+
+.star-rating-select svg.lucide.active {
+  stroke: var(--accent-gold);
+  fill: var(--accent-gold);
+}
+
+/* Spinner Rotate Animation */
+.spin-icon {
+  width: 32px;
+  height: 32px;
+  animation: spin 1s linear infinite;
+  display: inline-block;
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
